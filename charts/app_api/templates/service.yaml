@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+{{ include "app_api.header" . | indent 2}}
+spec:
+  ports:
+    - port: {{ .Values.api_port }}
+  selector:
+    app: api-{{ .Release.Name }}
+  clusterIP: None
